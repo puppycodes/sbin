@@ -242,7 +242,6 @@ function tag_dump(opts) {
 
 riot.tag('home', tag_home_tpl.innerHTML, tag_home);
 riot.tag('dump', tag_dump_tpl.innerHTML, tag_dump);
-riot.tag('faq', tag_faq_tpl.innerHTML, function(){});
 riot.tag('page404', tag_page404_tpl.innerHTML, function(){});
 
 mountedContentTag = null;
@@ -258,10 +257,8 @@ riot.route(function(part1, part2) {
     } else if (part1 && !part2) {
         console.log('[route]: dump');
         mountedContentTag = riot.mount('dump', {dump_id: part1})[0];
-    } else if (part1 == 'help' && part2 == 'faq') {
-        console.log('[route]: faq');
-        mountedContentTag = riot.mount('faq')[0];
-    } else {
+    }
+      else {
         console.log('[route]: page404');
         mountedContentTag = riot.mount('page404')[0];
     }
